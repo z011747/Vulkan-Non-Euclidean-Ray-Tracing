@@ -1,0 +1,75 @@
+#version 460
+#extension GL_EXT_ray_tracing : enable
+#extension GL_EXT_ray_flags_primitive_culling : enable
+
+
+layout(binding = 0, set = 0) uniform accelerationStructureEXT TLAS;
+layout(binding = 1, set = 0) uniform accelerationStructureEXT TLAS_stretched;
+layout(binding = 2, set = 0, rgba8) uniform image2D image;
+
+#include "UniformBuffer.glsl"
+#include "rayCommon.glsl"
+layout(location = 0) rayPayloadEXT Ray ray;
+
+void main() 
+{
+	const vec2 pixelCenter = vec2(gl_LaunchIDEXT.xy) + vec2(0.5);
+	const vec2 inUV = pixelCenter/vec2(gl_LaunchSizeEXT.xy);
+	vec2 d = inUV * 2.0 - 1.0;
+
+	vec4 origin = ubo.view * vec4(0,0,0,1);
+	vec4 target = ubo.proj * vec4(d.x, d.y, 1, 1);
+	vec4 direction = ubo.view * vec4(normalize(target.xyz), 0);
+
+	float tmin = 0.001;
+	float tmax = 10000.0;
+
+    ray.hitValue = vec3(0.0);
+	ray.depth = 0;
+	ray.done = 1;
+	ray.distanceTraveled = 0.0;
+	ray.rayOrigin = origin.xyz;
+	ray.rayDir = direction.xyz;
+	ray.targetTLAS = 0;
+
+	if (ubo.insideHallway)
+	{
+		ray.rayOrigin *= ubo.stretch.xyz; //stretch if already in hallway
+		ray.targetTLAS = 1;
+	}
+
+	int maxDepth = 25;
+	float fogStart = 50.0;
+	float fogEnd = 80.0;
+	
+
+	//begin ray iteration
+	for(;;)
+	{
+		//check which TLAS the ray should shoot from
+		if (ray.targetTLAS == 0)
+			traceRayEXT(TLAS, gl_RayFlagsOpaqueEXT, 0xff, 0, 0, 0, ray.rayOrigin, tmin, ray.rayDir, tmax, 0);
+		else
+			traceRayEXT(TLAS_stretched, gl_RayFlagsOpaqueEXT, 0xff, 0, 0, 0, ray.rayOrigin, tmin, ray.rayDir, tmax, 0); //switch to stretched version
+			
+
+		ray.depth++;
+		if(ray.done == 1 || ray.depth >= maxDepth || ray.distanceTraveled >= fogEnd) //check if it should stop iterating
+		{
+			break;
+		}
+      		
+
+		ray.done = 1;
+	}
+
+	//basic fog
+	float fogFactor = clamp((fogEnd - ray.distanceTraveled) / (fogEnd - fogStart), 0.0, 1.0);
+
+    
+
+
+	ray.hitValue = pow(ray.hitValue * fogFactor, vec3(1.0/2.2)); //gamma correction
+
+	imageStore(image, ivec2(gl_LaunchIDEXT.xy), vec4(ray.hitValue, 0.0));
+}

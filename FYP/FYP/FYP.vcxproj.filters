@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{710d129b-4de9-4ddd-8d00-e48f7b20ccd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="raytracing">
+      <UniqueIdentifier>{2e96b933-6808-4af3-becc-9b4ff6080f68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Descriptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\backends\imgui_impl_glfw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\backends\imgui_impl_vulkan.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\imgui-1.89.9\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Raytracer.cpp">
+      <Filter>raytracing</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderBindingTable.cpp">
+      <Filter>raytracing</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTraceImage.cpp">
+      <Filter>raytracing</Filter>
+    </ClCompile>
+    <ClCompile Include="RTFuncs.cpp">
+      <Filter>raytracing</Filter>
+    </ClCompile>
+    <ClCompile Include="AccelerationStructure.cpp">
+      <Filter>raytracing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Structures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Descriptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\backends\imgui_impl_glfw.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\backends\imgui_impl_vulkan.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\imgui-1.89.9\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Raytracer.h">
+      <Filter>raytracing</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderBindingTable.h">
+      <Filter>raytracing</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTraceImage.h">
+      <Filter>raytracing</Filter>
+    </ClInclude>
+    <ClInclude Include="RTFuncs.h">
+      <Filter>raytracing</Filter>
+    </ClInclude>
+    <ClInclude Include="AccelerationStructure.h">
+      <Filter>raytracing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\base.frag" />
+    <None Include="shaders\base.vert" />
+    <None Include="shaders\closesthit.rchit" />
+    <None Include="shaders\miss.rmiss" />
+    <None Include="shaders\rayCommon.glsl" />
+    <None Include="shaders\raygen.rgen" />
+    <None Include="shaders\shadow.rmiss" />
+    <None Include="shaders\Triangles.glsl" />
+    <None Include="shaders\UniformBuffer.glsl" />
+  </ItemGroup>
+</Project>
